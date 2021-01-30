@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="order.css">
+   <title>Order</title>
+</head>
+<body style="background-color: brown;">
+   <%-include('./partials/nav.ejs')%>
+   <section id="order">
+      <h1>Order Now</h1>
+      <form action="/order" method="POST">
+         <label for="name">Name:</label>
+         <input type="text" name="name" id="name" placeholder="Enter name">
+         <label for="adress">Adress</label>
+         <input type="text" name="adress" id="adress" placeholder="Enter adress">
+         <label for="dish">Select dish from list:</label>
+         <select name="dish" id="dish">
+            <option value="0">Select Dish</option>
+            <option value="Chicken Karai">Chicken karai</option>
+            <option value="Chicken Roast">Chicken Roast</option>
+            <option value="Tanduri Roast">Tanduri Roast</option>
+         </select>
+         <button>Submit</button>
+      </form>
+   </section>
+   </body>
+</html>

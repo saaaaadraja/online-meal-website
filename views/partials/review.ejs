@@ -1,0 +1,30 @@
+<section id="contact">
+    <div id="contact-container">
+        <h1 id="h-primary">Review</h1>
+        <form action="/Review" method="POST">
+            <div id="input">
+                <label for="title">Name</label>
+                <input type="text" name="title" id="name" placeholder="Enter Name">
+            </div>
+           <div id="input">
+               <label for="content">Review</label>
+                <textarea name="content" id="content" cols="30" rows="10" placeholder="Review"></textarea>
+            </div>
+           <button>Submit</button>
+        </form>
+    </div>
+</section>
+<section style="background-color: brown;">
+    <h1 style="color: black;">Reviews</h1>
+    <%if(data.length>0){%>
+        <%data.forEach(instance=>{%>
+            <div >
+                <a style="text-decoration: none;" href="/details/<%=instance._id%>"> <h5 style="color: green;"><%=instance.title%></h5></a>
+            <p style="color: black;"><%=instance.content%></p>
+        </div>
+            <%})%>
+            <%}else{%>
+                <p>there is no Review.</p>
+        <%}%>
+</section>
+<%-include('./footer.ejs')%>

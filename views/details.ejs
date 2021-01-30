@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        a{
+             border-radius: 50%;
+              padding: 8px;
+              color: blue;
+        }
+        a:hover{
+            color: green;
+            box-shadow: 1px 2px 3px rgba(0,0,0,0.2); 
+            cursor: pointer;
+        }
+    </style>
+    <title>Detail</title>
+</head>
+<body>
+    <h1>Detail</h1>
+    <h3><%=data.title%></h3>
+    <p><%=data.content%></p>
+    <a class="delete" data-doc="<%=data._id%>">Delete</a>
+    <script>
+    const del=document.querySelector('.delete');
+    del.addEventListener('click',(e)=>{
+        const url=`/details/${del.dataset.doc}`;
+       fetch(url,{
+           method:'DELETE'
+       })
+       .then((response)=>response.json())
+       .then((data)=> window.location.href=data.redirect)
+       .catch((err)=> console.log(err))
+    })
+    </script>
+</body>
+</html>
